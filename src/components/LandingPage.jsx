@@ -8,10 +8,22 @@ import { EffectComposer } from '@react-three/postprocessing';
 import { ToneMapping } from '@react-three/postprocessing';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import Page2 from './Page2';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 const LandingPage = () => {
+  window.addEventListener("mousemove" , (dets) => {
+    gsap.to(".crsr" , {
+      x: dets.x,
+      y: dets.y,
+      duration: 0.7
+    })
+  })
   return (
     <>
+    <div className="crsr z-[99] fixed mix-blend-difference w-[.9vw] h-[1.1vw] bg-white rounded-full"></div>
       <main className='font-aerial w-full min-h-screen'>
         <div className="page1 w-full h-screen">
           <div className="w-full flex flex-col md:flex-row justify-between items-start page1 h-screen">
@@ -53,6 +65,8 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
+        <Page2 />
+        <hr className='w-full h-[5px] bg-white' />
       </main>
     </>
   )

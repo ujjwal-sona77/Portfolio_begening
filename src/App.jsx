@@ -5,7 +5,9 @@ import "lenis/dist/lenis.css"
 import Achievements from './components/Achievements';
 import { Routes, Route } from 'react-router-dom';
 import Page2 from './components/Page2';
-
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 const App = () => {
   const lenis = new Lenis();
   function raf(time) {
@@ -14,8 +16,6 @@ const App = () => {
   }
 
   requestAnimationFrame(raf);
-
-
   return (
     <>
       <Routes>
